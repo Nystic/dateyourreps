@@ -1,5 +1,5 @@
-u_govern_user:
-    resource: "@uGovernUserBundle/Resources/config/routing.yml"
+app_user:
+    resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
 
 app:

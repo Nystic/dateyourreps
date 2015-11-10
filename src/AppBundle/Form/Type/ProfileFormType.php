@@ -1,6 +1,6 @@
 <?php 
 
-namespace uGovernUserBundle\Form\Type;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -10,6 +10,8 @@ class ProfileFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('party', 'choice', array(
+            'placeholder' => '',
+            'required' => false,
                 'choices' => array(
                     'Independant' => 'Indepedant',
                     'Democrat' => 'Democrat',
@@ -24,6 +26,8 @@ class ProfileFormType extends AbstractType
             'years' => range(date('Y') - 100, date('Y') - 18),
         ))
         ->add('education', 'choice', array(
+            'placeholder' => '',
+            'required' => false,
             'choices' => array(
                 'High School' => 'High School',
                 'College Degree' => 'College Degree',
@@ -33,6 +37,8 @@ class ProfileFormType extends AbstractType
         ->add('occupation', 'text')
         ->add('location', 'text')
         ->add('gender', 'choice', array(
+            'placeholder' => '',
+            'required' => false,
             'choices' => array(
                 'Male' => 'Male',
                 'Female' => 'Female',
@@ -40,6 +46,8 @@ class ProfileFormType extends AbstractType
             )
         ))
         ->add('ethnicity', 'choice', array(
+            'placeholder' => '',
+            'required' => false,
             'choices' => array(
                 'American Indian or Alaska Native' => 'American Indian or Alaska Native', 
                 'Asian' => 'Asian', 
@@ -50,6 +58,8 @@ class ProfileFormType extends AbstractType
             )
         ))
         ->add('registeredVoter', 'choice', array(
+            'placeholder' => '',
+            'required' => false,
             'choices' => array(
                 'Yes' => 'Yes',
                 'No' => 'No'
@@ -59,7 +69,7 @@ class ProfileFormType extends AbstractType
 
     public function getParent()
     {
-        return 'fos_user_registration';
+        return 'fos_user_profile';
     }
 
     public function getName()

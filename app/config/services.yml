@@ -8,12 +8,12 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     app_user.registration.form.type:
-        class: uGovernUserBundle\Form\Type\RegistrationFormType
+        class: AppBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ugovern_user_registration }
     app_user.profile.form.type:
-        class: uGovernUserBundle\Form\Type\ProfileFormType
+        class: AppBundle\Form\Type\ProfileFormType
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ugovern_user_profile }

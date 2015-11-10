@@ -1,6 +1,0 @@
-u_govern_user_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: uGovernUserBundle:Default:index }
-u_govern_user_view:
-    path:     /profile/view/{id}
-    defaults: { _controller: uGovernUserBundle:Profile:viewUser }

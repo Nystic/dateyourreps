@@ -1,4 +1,4 @@
 services:
-#    u_govern_user.example:
-#        class: uGovernUserBundle\Example
+#    app_user.example:
+#        class: AppBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]

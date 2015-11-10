@@ -1,6 +1,6 @@
 <?php
 
-namespace uGovernUserBundle\Controller;
+namespace AppBundle\Controller;
 
 use FOS\UserBundle\Controller\ProfileController as BaseProfileController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
