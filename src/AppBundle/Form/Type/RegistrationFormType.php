@@ -13,7 +13,7 @@ class RegistrationFormType extends AbstractType
             'placeholder' => 'Choose an option',
             'required' => false,
                 'choices' => array(
-                    'Independant' => 'Indepedant',
+                    'Independent' => 'Indepedent',
                     'Democrat' => 'Democrat',
                     'Republican' => 'Republican',
                     'Other' => 'Other'

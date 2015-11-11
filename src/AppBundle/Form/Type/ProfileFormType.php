@@ -13,7 +13,7 @@ class ProfileFormType extends AbstractType
             'placeholder' => '',
             'required' => false,
                 'choices' => array(
-                    'Independant' => 'Indepedant',
+                    'Independent' => 'Indepedent',
                     'Democrat' => 'Democrat',
                     'Republican' => 'Republican',
                     'Other' => 'Other'

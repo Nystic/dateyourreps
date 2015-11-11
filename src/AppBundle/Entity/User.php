@@ -6,6 +6,9 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
@@ -62,12 +65,12 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    protected $movements = 'a:0:{}';
+    protected $movements;
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->movements = array();
     }
 
     /**
