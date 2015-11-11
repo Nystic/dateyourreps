@@ -62,7 +62,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    protected $movements = 'a:0:{}';
+    protected $movements = null;
 
     public function __construct()
     {
@@ -260,29 +260,5 @@ class User extends BaseUser
     public function getRegisteredVoter()
     {
         return $this->registeredVoter;
-    }
-
-    /**
-     * Set movements
-     *
-     * @param array $movements
-     *
-     * @return User
-     */
-    public function setMovements($movements)
-    {
-        $this->movements = $movements;
-
-        return $this;
-    }
-
-    /**
-     * Get movements
-     *
-     * @return array
-     */
-    public function getMovements()
-    {
-        return $this->movements;
     }
 }

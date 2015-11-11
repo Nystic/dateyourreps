@@ -4,3 +4,12 @@ app_user_homepage:
 app_user_view:
     path:     /profile/view/{id}
     defaults: { _controller: AppBundle:Profile:viewUser }
+app_movements_viewAll:
+    path:     /movement/
+    defaults: { _controller: AppBundle:Movement:viewAll }
+app_movements_view:
+    path:     /movement/view/{id}
+    defaults: { _controller: AppBundle:Movement:view }
+app_movements_join:
+    path:     /movement/join/{id}
+    defaults: { _controller: AppBundle:Movement:join }
