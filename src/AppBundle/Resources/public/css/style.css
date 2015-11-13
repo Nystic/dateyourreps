@@ -1,0 +1,11 @@
+body 
+{  
+	font-family: Verdana, sans-serif;
+}
+
+#footer
+{
+	position: fixed; 
+	bottom: 50px;
+	right: 20px;
+}

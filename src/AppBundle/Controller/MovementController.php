@@ -13,18 +13,13 @@ class MovementController extends Controller
 {
 	function viewAllAction()
 	{
-		$movement = $this->getDoctrine()
+		$movements = $this->getDoctrine()
 			->getRepository('AppBundle:Movement')
 			->findAll();
 
-		$response = '';
-
-		foreach($movement as $movement)
-		{
-			$response .= $movement->getTitle().', <a href="'.$this->generateUrl('app_movements_join', array('id' => $movement->getId())).'">join</a>.<br>';
-		}
-
-		return new Response($response);
+		return $this->render('AppBundle:Movement:showall.html.twig', array(
+            'movements' => $movements
+        ));
 
 	}
 

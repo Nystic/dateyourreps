@@ -13,12 +13,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-    	$router = $this->get('router');
-    	$login_url = $router->generate('fos_user_security_login');
-    	$register_url = $router->generate('fos_user_registration_register');
-    	$logout_url = $router->generate('fos_user_security_logout');
-    	$current_user = $this->get('security.token_storage')->getToken();
-        return new Response('<html><body>Hello, '.($current_user->getUser() == 'anon.' ? 'would you like to <a href="'.$login_url.'">log in</a>?' : $current_user->getUser().'!').' You\'re '.($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN') ? 'an admin! <a href="'.$logout_url.'">Logout</a>' : ($current_user->getUser() == 'anon.' ? 'anonymous! Would you like to <a href="'.$register_url.'">register</a>?' : 'a user! <a href="'.$logout_url.'">Logout</a>')).'</body></html>');
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+		return $this->render('AppBundle:Default:index.html.twig', array(
+            'user' => $user
+        ));
     }
 
     /**

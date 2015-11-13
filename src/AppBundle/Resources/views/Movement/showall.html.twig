@@ -1,0 +1,9 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}Viewing All Movements{% endblock %}
+
+{% block content %}
+	{% for movement in movements %}
+		<p>{{ movement.title }}, <a href="{{ path('app_movements_join', {'id':movement.id}) }}">join.</a></p>
+	{% endfor %}
+{% endblock %}

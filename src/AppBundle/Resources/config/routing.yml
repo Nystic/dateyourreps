@@ -1,11 +1,25 @@
 app_user_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: AppBundle:Default:index }
+
+app_user_view_self:
+    path:     /profile/
+    defaults: { _controller: AppBundle:Profile:show }
 app_user_view:
     path:     /profile/view/{id}
     defaults: { _controller: AppBundle:Profile:viewUser }
+app_user_security_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login }
+app_user_security_check:
+    path:     /login_check
+    defaults: { _controller: AppBundle:Security:check }
+app_user_security_logout:
+    path:     /logout
+    defaults: { _controller: AppBundle:Security:check }
+
 app_movements_viewAll:
-    path:     /movement/
+    path:     /movements/
     defaults: { _controller: AppBundle:Movement:viewAll }
 app_movements_view:
     path:     /movement/view/{id}
