@@ -1,0 +1,7 @@
+<div class="fos_user_user_show">
+    <h1>{{ movement.title }}</h1>
+    <h3>Our Motto:</h3>
+    <p>{{ movement.motto }}<p>
+    <hr>
+    <p>Users: {% for user in movement.users %} <a href=" {{ path("app_user_view", {'id': user.id}) }} ">{{ user.username }}</a> {% else %} None{% endfor %}
+</div>

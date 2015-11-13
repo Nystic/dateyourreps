@@ -29,14 +29,14 @@ class Movement
     protected $motto;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\ManyToMany(targetEntity="User")
      */
-    protected $movers = 'a:0:{}';    
+    protected $users; 
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -98,26 +98,36 @@ class Movement
     }
 
     /**
-     * Set movers
+     * Add user
      *
-     * @param array $movers
+     * @param \AppBundle\Entity\User $user
      *
      * @return Movement
      */
-    public function setMovers($movers)
+    public function addUser(\AppBundle\Entity\User $user)
     {
-        $this->movers = $movers;
+        $this->users[] = $user;
 
         return $this;
     }
 
     /**
-     * Get movers
+     * Remove user
      *
-     * @return array
+     * @param \AppBundle\Entity\User $user
      */
-    public function getMovers()
+    public function removeUser(\AppBundle\Entity\User $user)
     {
-        return $this->movers;
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

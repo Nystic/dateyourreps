@@ -1,7 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <h1>{{ user.username }}</h1>
     <p>Birthday: {{ user.birthday|date("m/d/Y") }}</p>
     <p>Affiliation: {{ user.party|capitalize }}</p>
     <p>Work: {{ user.occupation|title }}</p>
@@ -10,4 +10,5 @@
     <p>Gender: {{ user.gender }}</p>
     <p>Ethnicity: {{ user.ethnicity }}</p>
     <p>Registered Voter?: {{ user.registeredVoter }}</p>
+    <p>Movements: {% for movement in user.movements %} <a href=" {{ path("app_movements_view", {'id': movement.id}) }} ">{{ movement.title }}</a> {% else %} None{% endfor %}
 </div>

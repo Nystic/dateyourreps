@@ -29,13 +29,105 @@ class Movement
     protected $motto;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\ManyToMany(targetEntity="User")
      */
-    protected $movers;    
+    protected $users; 
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Movement
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set motto
+     *
+     * @param string $motto
+     *
+     * @return Movement
+     */
+    public function setMotto($motto)
+    {
+        $this->motto = $motto;
+
+        return $this;
+    }
+
+    /**
+     * Get motto
+     *
+     * @return string
+     */
+    public function getMotto()
+    {
+        return $this->motto;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Movement
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

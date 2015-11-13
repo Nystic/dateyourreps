@@ -6,6 +6,9 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
@@ -60,14 +63,14 @@ class User extends BaseUser
     protected $birthday = null;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\ManyToMany(targetEntity="Movement")
      */
-    protected $movements = null;
+    protected $movements;
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->movements = new ArrayCollection();
     }
 
     /**
@@ -260,5 +263,53 @@ class User extends BaseUser
     public function getRegisteredVoter()
     {
         return $this->registeredVoter;
+    }
+
+    /**
+     * Set movements
+     *
+     * @param array $movements
+     *
+     * @return User
+     */
+    public function setMovements($movements)
+    {
+        $this->movements = $movements;
+
+        return $this;
+    }
+
+    /**
+     * Get movements
+     *
+     * @return array
+     */
+    public function getMovements()
+    {
+        return $this->movements;
+    }
+
+    /**
+     * Add movement
+     *
+     * @param \AppBundle\Entity\Movement $movement
+     *
+     * @return User
+     */
+    public function addMovement(\AppBundle\Entity\Movement $movement)
+    {
+        $this->movements[] = $movement;
+
+        return $this;
+    }
+
+    /**
+     * Remove movement
+     *
+     * @param \AppBundle\Entity\Movement $movement
+     */
+    public function removeMovement(\AppBundle\Entity\Movement $movement)
+    {
+        $this->movements->removeElement($movement);
     }
 }

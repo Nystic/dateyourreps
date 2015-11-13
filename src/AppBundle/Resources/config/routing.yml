@@ -13,3 +13,6 @@ app_movements_view:
 app_movements_join:
     path:     /movement/join/{id}
     defaults: { _controller: AppBundle:Movement:join }
+app_movements_leave:
+    path:     /movement/leave/{id}
+    defaults: { _controller: AppBundle:Movement:leave }

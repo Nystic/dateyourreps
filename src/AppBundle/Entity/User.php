@@ -63,14 +63,14 @@ class User extends BaseUser
     protected $birthday = null;
 
     /**
-     * @ORM\Column(type="array", nullable=true)
+     * @ORM\ManyToMany(targetEntity="Movement")
      */
     protected $movements;
 
     public function __construct()
     {
         parent::__construct();
-        $this->movements = array();
+        $this->movements = new ArrayCollection();
     }
 
     /**
@@ -287,5 +287,29 @@ class User extends BaseUser
     public function getMovements()
     {
         return $this->movements;
+    }
+
+    /**
+     * Add movement
+     *
+     * @param \AppBundle\Entity\Movement $movement
+     *
+     * @return User
+     */
+    public function addMovement(\AppBundle\Entity\Movement $movement)
+    {
+        $this->movements[] = $movement;
+
+        return $this;
+    }
+
+    /**
+     * Remove movement
+     *
+     * @param \AppBundle\Entity\Movement $movement
+     */
+    public function removeMovement(\AppBundle\Entity\Movement $movement)
+    {
+        $this->movements->removeElement($movement);
     }
 }
